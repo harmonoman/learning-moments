@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+/* index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Bangers';
+  src: url('/fonts/Bangers-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block; /* or optional */
+}
+
+body {
+  @apply bg-blue-200 text-gray-900;
+  font-family: 'Courier New', monospace;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bangers', comic;
+}
+
+.btn {
+  @apply bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded;
+}
