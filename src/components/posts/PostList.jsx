@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { useEffect } from "react"
 import { getAllPosts } from "../../services/postService"
-import "./Posts.css"
 import { Post } from "./Post"
 
 export const PostList = () => {
