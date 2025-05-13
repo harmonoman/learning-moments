@@ -1,13 +1,26 @@
 // App.jsx
+import './index.css';
 import React from 'react';
 import { PostList } from './components/posts/PostList';
-import './index.css';
+import { Register } from './components/auth/Register';
+import { Login } from './components/auth/Login';
+import { ApplicationViews } from './views/ApplicationViews';
+import { Authorized } from './views/Authorized';
+
+import { Route, Routes } from 'react-router-dom';
 
 export const App = () => {
 
   return (
-    <div>
-      <PostList />
-    </div>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route 
+        path="*" 
+        element ={
+          <Authorized>
+            <ApplicationViews />
+          </Authorized>} />
+    </Routes>
   );
 };
