@@ -10,11 +10,15 @@ export const PostList = () => {
     const [searchTerm, setSearchTerm] = useState("")
     const [lastTopicId, setLastTopicId] = useState(0);
 
-    // Get all Posts
-    useEffect(() => {
+    const getAndSetPosts = () => {
         getAllPosts().then(postsArray => {
             setAllPosts(postsArray);
         })
+    }
+
+    // Get all Posts
+    useEffect(() => {
+        getAndSetPosts();
     }, [])
     
     // Filtering logic

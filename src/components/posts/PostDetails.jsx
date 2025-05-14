@@ -37,7 +37,6 @@ export const PostDetails = ({ currentUser }) => {
     
     useEffect(() => {
         const likes = allLikes.filter((like) => like.postId === parseInt(postId))
-        console.log("likes: ", likes)
         const total = likes.length;
             setLikesTotal(total);
     }, [allLikes, postId])
@@ -68,8 +67,6 @@ export const PostDetails = ({ currentUser }) => {
 
     }
 
-  
-
     return (
         <section className="bg-white p-6 rounded-xl shadow-md border border-gray-200 max-w-3xl mx-auto mt-10 space-y-4">
             <h2 className="text-3xl font-bold text-gray-800">{postInfo?.title}</h2>
@@ -80,9 +77,15 @@ export const PostDetails = ({ currentUser }) => {
                     {authorName}
                 </div>
                 {currentUser.id === postInfo?.userId ? (
-                <button className="btn btn-secondary" onClick={handleEdit}>Edit</button>) : ("")}
+                    <button 
+                        className="bg-[#CC5500] text-white font-semibold py-2 px-6 rounded hover:bg-orange-600 transition duration-200" 
+                        onClick={handleEdit}>Edit</button>) : ("")
+                }
                 {currentUser.id != postInfo?.userId ? (
-                <button className="btn btn-secondary" onClick={handleLike}>Like</button>) : ("")}
+                    <button 
+                        className="bg-[#CC5500] text-white font-semibold py-2 px-6 rounded hover:bg-orange-600 transition duration-200" 
+                        onClick={handleLike}>Like</button>) : ("")
+                }
             </div>
       
             <div className="text-gray-600">

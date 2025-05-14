@@ -3,6 +3,7 @@ import { PostList } from "../components/posts/PostList"
 import { NavBar } from "../components/nav/NavBar"
 import { useEffect, useState } from "react"
 import { PostDetails } from "../components/posts/PostDetails"
+import { NewPost } from "../components/forms/NewPostForm"
 
 export const ApplicationViews = () => {
     const [currentUser, setCurrentUser] = useState({});
@@ -12,10 +13,6 @@ export const ApplicationViews = () => {
         const learningUserObject = JSON.parse(localLearningUser);
         setCurrentUser(learningUserObject);        
     }, [])
-
-    useEffect(() => {
-        console.log("currentUser: ", currentUser)
-    })
 
     return (
         <Routes>
@@ -30,6 +27,7 @@ export const ApplicationViews = () => {
             >
                 <Route index element={<PostList />} />
                 <Route path="posts/:postId" element={<PostDetails currentUser={currentUser}/>} />
+                <Route path="newPost" element={<NewPost currentUser={currentUser}/>} />
 
             </Route>
         </Routes>
