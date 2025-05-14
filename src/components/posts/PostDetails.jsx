@@ -42,12 +42,6 @@ export const PostDetails = ({ currentUser }) => {
             setLikesTotal(total);
     }, [allLikes, postId])
 
-
-    useEffect(() => {
-        console.log("postInfo: ", postInfo)
-        console.log("postId: ", postId)
-    })
-
     // Handle likes
     const handleLike = () => {
         const alreadyLiked = allLikes.some(
@@ -65,7 +59,6 @@ export const PostDetails = ({ currentUser }) => {
         };
       
         postLike(likeObj).then(() => {
-          // Optionally refetch likes or just update state manually
           setAllLikes([...allLikes, likeObj]);
         });
       };
