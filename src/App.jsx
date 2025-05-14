@@ -1,7 +1,6 @@
 // App.jsx
 import './index.css';
 import React from 'react';
-import { PostList } from './components/posts/PostList';
 import { Register } from './components/auth/Register';
 import { Login } from './components/auth/Login';
 import { ApplicationViews } from './views/ApplicationViews';
