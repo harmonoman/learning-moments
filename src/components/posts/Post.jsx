@@ -40,7 +40,7 @@ export const Post = ({ post }) => {
             <section className="bg-white p-6 rounded-xl shadow-md border border-gray-200">
                 <div className="grid grid-cols-[2fr_1fr_auto] gap-4 text-gray-700 items-start">
                     <h2 className="text-2xl font-bold">
-                        <Link to={`./posts/${post.id}`} className="hover:text-blue-600">
+                        <Link to={`/posts/${post.id}`} className="hover:text-blue-600">
                             {post.title}      
                         </Link>
                     </h2> 

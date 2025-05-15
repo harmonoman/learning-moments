@@ -37,7 +37,7 @@ export const NewPost = ({ currentUser }) => {
         }
 
         savePost(newPostObj).then(() => {
-            navigate(`/`);
+            navigate(`/myPosts`);
         })
     }
 
