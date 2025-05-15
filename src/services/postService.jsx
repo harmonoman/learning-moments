@@ -11,3 +11,9 @@ export const savePost = (post) => {
         body: JSON.stringify(post),
     })
 }
+
+export const deletePost = (postId) => {
+    return fetch(`http://localhost:8088/posts/${postId}`, {
+        method: "DELETE",
+    })     
+}

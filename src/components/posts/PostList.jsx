@@ -7,18 +7,13 @@ export const PostList = () => {
     const [allPosts, setAllPosts] = useState([]);
     const [selectedTopicId, setSelectedTopicId] = useState(0);
     const [filteredPosts, setFilteredPosts] = useState([]);
-    const [searchTerm, setSearchTerm] = useState("")
-    const [lastTopicId, setLastTopicId] = useState(0);
-
-    const getAndSetPosts = () => {
-        getAllPosts().then(postsArray => {
-            setAllPosts(postsArray);
-        })
-    }
+    const [searchTerm, setSearchTerm] = useState("");
 
     // Get all Posts
     useEffect(() => {
-        getAndSetPosts();
+        getAllPosts().then(postsArray => {
+            setAllPosts(postsArray);
+        })
     }, [])
     
     // Filtering logic
@@ -33,7 +28,7 @@ export const PostList = () => {
         }
     
         // Then filter by search term if provided
-        if (searchTerm !== "") {
+        if (searchTerm.trim() !== "") {
             postsToFilter = postsToFilter.filter(post =>
                 post.title.toLowerCase().includes(searchTerm.toLowerCase())
             );
@@ -43,18 +38,15 @@ export const PostList = () => {
     }, [searchTerm, selectedTopicId, allPosts]);
 
     // Handling of a topic change
-    const handleTopicChange = (topicId, preserveLast = false) => {
+    const handleTopicChange = (topicId) => {
         setSelectedTopicId(topicId);
-        if (!preserveLast && topicId !== 0) {
-            setLastTopicId(topicId);
-        }
     }
 
     return (
         <div className="flex flex-col items-center px-4 py-8">
             <h1 className="font-comic text-6xl mb-10">Posts</h1>
             <div className="w-full max-w-4xl space-y-6">  
-                <PostFilterBar onTopicChange={handleTopicChange} setSearchTerm={setSearchTerm} lastTopic={lastTopicId}/>
+                <PostFilterBar onTopicChange={handleTopicChange} setSearchTerm={setSearchTerm} selectedTopicId={selectedTopicId}/>
             </div>
             <div className="w-full max-w-4xl space-y-6">  
                 {filteredPosts.map((postObj) => (
