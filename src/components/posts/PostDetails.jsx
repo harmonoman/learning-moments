@@ -61,6 +61,8 @@ export const PostDetails = ({ currentUser }) => {
         postLike(likeObj).then(() => {
           setAllLikes([...allLikes, likeObj]);
         });
+
+        navigate('/favorites')
     }
 
     // Handle edit
