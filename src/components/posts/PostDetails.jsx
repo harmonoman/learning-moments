@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { getAllPosts } from "../../services/postService";
 import { useEffect, useState } from "react";
 import { getAllLikes, postLike } from "../../services/likesService";
@@ -10,6 +10,8 @@ export const PostDetails = ({ currentUser }) => {
     const [allLikes, setAllLikes] = useState([]);
     const [likesTotal, setLikesTotal] = useState([]);
     const [authorName, setAuthorName] = useState([])
+
+    const navigate = useNavigate();
 
     // Get post info
     useEffect(() => {
@@ -26,7 +28,6 @@ export const PostDetails = ({ currentUser }) => {
             setAuthorName(author?.name);
         })
     }, [postInfo])
-
 
     // Get number of likes
     useEffect(() => {
@@ -60,11 +61,11 @@ export const PostDetails = ({ currentUser }) => {
         postLike(likeObj).then(() => {
           setAllLikes([...allLikes, likeObj]);
         });
-      };
+    }
 
-      // Handle edit
+    // Handle edit
     const handleEdit = () => {
-
+        navigate(`/editPost/${postId}`)
     }
 
     return (
