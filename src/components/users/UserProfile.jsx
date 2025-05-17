@@ -42,8 +42,7 @@ export const UserProfile = ({ currentUser }) => {
 
     return (
         
-    <section className="bg-white p-6 rounded-xl shadow-md border border-gray-200 max-w-3xl mx-auto mt-10 space-y-4">
-        
+        <section className="bg-white p-6 rounded-xl shadow-md border border-gray-200 max-w-3xl mx-auto mt-10 space-y-4">
             <h2 className="text-3xl font-bold text-gray-800">{user?.name}</h2>
             <div className="flex justify-between items-center text-gray-600">
                 <div className="text-gray-600">
@@ -57,7 +56,6 @@ export const UserProfile = ({ currentUser }) => {
                             Edit
                     </button>) : ("")
                 }
-                
             </div>
             <div className="flex justify-between items-center text-gray-600">
                 <div className="text-gray-600">
@@ -65,10 +63,6 @@ export const UserProfile = ({ currentUser }) => {
                     {postsNum}
                 </div>
             </div>
-        
-
-        
-
-    </section>
+        </section>
     )
 }
