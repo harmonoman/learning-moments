@@ -44,7 +44,9 @@ export const PostList = () => {
 
     return (
         <div className="flex flex-col items-center px-4 py-8">
+            <h1 className="font-comic text-7xl mb-10">Learning Moments</h1>
             <h1 className="font-comic text-6xl mb-10">Posts</h1>
+
             <div className="w-full max-w-4xl space-y-6">  
                 <PostFilterBar onTopicChange={handleTopicChange} setSearchTerm={setSearchTerm} selectedTopicId={selectedTopicId}/>
             </div>
