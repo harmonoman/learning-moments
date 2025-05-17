@@ -18,6 +18,9 @@ export const NavBar = () => {
             <li className="navbar-item">
                 <Link to="/favorites" className="navbar-link" >Favorites</Link>
             </li>
+            <li className="navbar-item">
+                <Link to="/profile" className="navbar-link" >Profile</Link>
+            </li>
             {localStorage.getItem("learning_user") ? (
                 <li className="navbar-item navbar-logout">
                     <Link

@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { getAllPosts } from "../../services/postService";
 import { useEffect, useState } from "react";
 import { getAllLikes, postLike } from "../../services/likesService";
@@ -19,7 +19,7 @@ export const PostDetails = ({ currentUser }) => {
             const post = postsArray.find(p => p.id === parseInt(postId))
             setPostInfo(post);
         })
-    }, [postId])
+    }, [postId, postInfo])
 
     // Get author
     useEffect(() => {
@@ -77,7 +77,9 @@ export const PostDetails = ({ currentUser }) => {
             <div className="flex justify-between items-center text-gray-600">
                 <div>
                     <span className="font-semibold">By: </span>
-                    {authorName}
+                    <Link to={`/profile/${postInfo?.userId}`} className="hover:text-blue-600">
+                        {authorName}
+                    </Link>
                 </div>
                 {currentUser.id === postInfo?.userId ? (
                     <button 
