@@ -3,12 +3,10 @@ import { getAllUsers, updateUser } from "../../services/userService";
 import { useNavigate } from "react-router-dom";
 
 export const EditProfile = ({ currentUser }) => {
-
     const [name, setName] = useState("");
     const [cohort, setCohort] = useState("");
 
     const navigate = useNavigate();
-
 
     useEffect(() => {
         getAllUsers().then(usersArray => {
@@ -18,8 +16,7 @@ export const EditProfile = ({ currentUser }) => {
         })
     },[currentUser])
     
-
-    const handleUpdate = () => {
+    const handleUpdate = (event) => {
         event.preventDefault();
 
         const userUpdate = {
@@ -79,6 +76,5 @@ export const EditProfile = ({ currentUser }) => {
                 </button>
             </fieldset>
         </form>
-
     )
 }
