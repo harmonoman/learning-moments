@@ -56,6 +56,9 @@ export const EditPost = ({ currentUser }) => {
 
             {/* Title input */}
             <fieldset>
+                <label htmlFor="name" className="block text-lg font-semibold text-gray-700">
+                    Title
+                </label>
                 <input
                     onChange={(event) => setTitle(event.target.value)}
                     type="text"
@@ -67,11 +70,17 @@ export const EditPost = ({ currentUser }) => {
 
              {/* Topic Dropdown */}
             <fieldset>
+                <label htmlFor="name" className="block text-lg font-semibold text-gray-700">
+                    Topic
+                </label>
                 <TopicDropdown onTopicChange={handleTopicChange} selectedTopicId={selectedTopicId}/>
             </fieldset>
 
             {/* Body input */}
             <fieldset>
+                <label htmlFor="body" className="block text-lg font-semibold text-gray-700">
+                    Body
+                </label>
                 <textarea
                     onChange={(event) => setBody(event.target.value)}
                     value={body}
